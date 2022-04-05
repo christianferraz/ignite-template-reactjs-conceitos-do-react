@@ -16,6 +16,8 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    if (!newTaskTitle)
+      return
     let idTemp = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1
     setTasks(oldTask => [...oldTask, { id: idTemp, title: newTaskTitle, isComplete: false }])
     setNewTaskTitle('')
